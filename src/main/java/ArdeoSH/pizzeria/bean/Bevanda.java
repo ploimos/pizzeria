@@ -1,8 +1,12 @@
 package ArdeoSH.pizzeria.bean;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class Bevanda{
     private String nome;
     private double prezzo;

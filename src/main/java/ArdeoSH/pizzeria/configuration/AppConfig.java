@@ -1,11 +1,14 @@
 package ArdeoSH.pizzeria.configuration;
 
 import ArdeoSH.pizzeria.bean.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+    @Value("${pizzeria.costo-coperto}")
+    private double costoCoperto;
 
     @Bean
     public Ingrediente prosciuttoCotto() {
@@ -70,6 +73,20 @@ public class AppConfig {
     @Bean
     public Bevanda birra1() {
         return new Bevanda("Peroni 33cl", 3.0, 129);
+    }
+
+    @Bean
+    public GestioneOrdini gestioneOrdini(@Value("${pizzeria.costo-coperto}") double costoCoperto) {
+        return new GestioneOrdini(costoCoperto);
+    }
+
+    @Bean
+    public Tavolo tavolo1() {
+        Tavolo tavolo = new Tavolo();
+        tavolo.setNumero(1);
+        tavolo.setCopertiMax(4);
+        tavolo.setStato("LIBERO");
+        return tavolo;
     }
 
 }

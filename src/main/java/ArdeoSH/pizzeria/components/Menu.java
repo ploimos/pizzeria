@@ -1,5 +1,8 @@
-package ArdeoSH.pizzeria.bean;
+package ArdeoSH.pizzeria.components;
 
+import ArdeoSH.pizzeria.bean.Bevanda;
+import ArdeoSH.pizzeria.bean.Ingrediente;
+import ArdeoSH.pizzeria.bean.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -72,4 +75,13 @@ public class Menu {
     public void aggiungiIngrediente(Ingrediente ingrediente) {
         this.ingredienti.add(ingrediente);
     }
+
+    public List<Pizza> getPizze() { return this.pizze; }
+    public List<Bevanda> getBevande() { return this.bevande; }
+
+    public List<Ingrediente> getIngredienti() {
+        return this.ingredienti;
+    }
+
+
 }
